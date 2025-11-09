@@ -107,18 +107,12 @@ export async function POST(request: Request) {
           })
         }
 
-        // If not found by card, try by name (exact match)
+        // If not found by card, try by name (case-insensitive match)
+        // SQLite doesn't support case-insensitive mode, so we filter in JavaScript
         if (!customer && customerName) {
-          const customers = await prisma.customer.findMany({
-            where: {
-              name: {
-                equals: customerName.trim(),
-                mode: 'insensitive'
-              }
-            },
-            take: 1
-          })
-          customer = customers[0] || null
+          const allCustomers = await prisma.customer.findMany()
+          const nameLower = customerName.trim().toLowerCase()
+          customer = allCustomers.find(c => c.name.toLowerCase() === nameLower) || null
         }
 
         // Create new customer if doesn't exist

@@ -50,18 +50,16 @@ export async function GET(request: Request) {
 
     if (search) {
       // Search by name (case-insensitive partial match)
-      const customers = await prisma.customer.findMany({
-        where: {
-          name: {
-            contains: search,
-            mode: 'insensitive'
-          }
-        },
+      // SQLite doesn't support case-insensitive mode, so we filter in JavaScript
+      const allCustomers = await prisma.customer.findMany({
         orderBy: {
           name: 'asc'
-        },
-        take: 10 // Limit results
+        }
       })
+      const searchLower = search.toLowerCase()
+      const customers = allCustomers
+        .filter(customer => customer.name.toLowerCase().includes(searchLower))
+        .slice(0, 10) // Limit results
       return NextResponse.json(customers)
     }
 
