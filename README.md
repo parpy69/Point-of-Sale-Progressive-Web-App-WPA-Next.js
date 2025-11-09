@@ -65,10 +65,10 @@ Follow the steps below for your device:
 1. **Open Chrome** browser on your Android device
 2. **Navigate** to [https://point-of-sale-progressive-web-app-w.vercel.app/](https://point-of-sale-progressive-web-app-w.vercel.app/)
 3. Wait a few seconds for the page to load
-
-![Android PWA Running](./android-pwa-running.png)
-
 4. **Look for the "Install App" button** in the bottom-right corner (blue gradient button)
+
+![Android App Installed Notification](./android-installed-notification.png)
+
 5. **Tap "Install App"**
 6. A dialog will appear asking to **"Install app"**
 
@@ -80,11 +80,12 @@ Follow the steps below for your device:
    - URL: point-of-sale-progressive-web-app-w.vercel.app
 8. **Tap "Install"** to confirm
 9. You'll see a notification: **"Velocity - App installed"**
+
+![Android PWA Running](./android-pwa-running.png)
+
 10. The app will be added to your home screen
 11. **Tap the Velocity icon** on your home screen to launch the app
 12. The app opens in **standalone mode** - full screen without browser UI!
-
-![Android App Installed Notification](./android-installed-notification.png)
 
 **Alternative method for Android:**
 - If the "Install App" button doesn't appear, tap the **menu (⋮)** in the top-right of Chrome
