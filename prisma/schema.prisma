@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id               Int      @id @default(autoincrement())
+  name             String
+  price            Float
+  quantity         Int      @default(0)
+  barcode          String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  sales            Sale[]
+  supplierProducts SupplierProduct[]
+}
+
+model Customer {
+  id            Int      @id @default(autoincrement())
+  name          String
+  cardNumber    String?  @unique // Optional loyalty card number
+  loyaltyPoints Float    @default(0)
+  totalSpent    Float    @default(0) // Track total lifetime spending
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  sales         Sale[]
+}
+
+model Sale {
+  id         Int      @id @default(autoincrement())
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  customerId Int?     // Optional - link to customer if loyalty points used
+  customer   Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  quantity   Int
+  price      Float
+  total      Float
+  createdAt  DateTime @default(now())
+}
+
+model Settings {
+  id                    Int     @id @default(autoincrement())
+  lowStockThreshold     Int     @default(5)
+  moderateStockThreshold Int   @default(10)
+  highStockThreshold    Int     @default(20)
+  loyaltyPointsEnabled  Boolean @default(false)
+  loyaltyPointsPerDollar Float   @default(1.0) // Points earned per $1 spent
+  updatedAt             DateTime @updatedAt
+}
+
+model Supplier {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  address     String?
+  contactName String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  orders      PurchaseOrder[]
+  products    SupplierProduct[]
+}
+
+model SupplierProduct {
+  id         Int      @id @default(autoincrement())
+  supplierId Int
+  supplier   Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  price      Float    // Supplier's price for this product
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([supplierId, productId])
+}
+
+model PurchaseOrder {
+  id                  Int      @id @default(autoincrement())
+  supplierId          Int
+  supplier            Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  orderNumber         String   @unique
+  items               String   // JSON string of order items
+  totalAmount         Float
+  status              String   @default("pending") // pending, sent, received
+  expectedArrivalDate DateTime?
+  notes               String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
