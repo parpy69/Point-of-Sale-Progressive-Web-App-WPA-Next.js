@@ -10,7 +10,7 @@ A modern, full-featured Point of Sale (POS) system built with Next.js, TypeScrip
 
 Velocity can be installed as a Progressive Web App on all your devices, providing a native app experience:
 
-![Velocity PWA](./pwa-screenshot.png)
+<img src="./pwa-screenshot.png" alt="Velocity PWA" width="600">
 
 ---
 
@@ -52,7 +52,7 @@ Follow the steps below for your device:
 10. The app will launch and be added to your Applications folder
 11. You can now find Velocity in your **Launchpad** and **Applications** folder
 
-![MacBook Install Dialog](./macbook-install-dialog.png)
+<img src="./macbook-install-dialog.png" alt="MacBook Install Dialog" width="500">
 
 > **Tip:** The app will open in its own window without browser UI, just like a native Mac app!
 
@@ -67,7 +67,7 @@ Follow the steps below for your device:
 3. Wait a few seconds for the page to load
 4. **Look for the "Install App" button** in the bottom-right corner (blue gradient button)
 
-![Android App Installed Notification](./android-installed-notification.png)
+<img src="./android-installed-notification.png" alt="Android Install Button" width="400">
 
 5. **Tap "Install App"**
 6. A dialog will appear asking to **"Install app"**
@@ -78,13 +78,13 @@ Follow the steps below for your device:
 8. **Tap "Install"** to confirm
 9. You'll see a notification: **"Velocity - App installed"**
 
-![Android PWA Running](./android-pwa-running.png)
+<img src="./android-pwa-running.png" alt="Android App Installed" width="400">
 
 10. The app will be added to your home screen
 11. **Tap the Velocity icon** on your home screen to launch the app
 12. The app opens in **standalone mode** - full screen without browser UI!
 
-![Android Install Dialog](./android-install-dialog.png)
+<img src="./android-install-dialog.png" alt="Android PWA Running" width="400">
 
 **Alternative method for Android:**
 - If the "Install App" button doesn't appear, tap the **menu (⋮)** in the top-right of Chrome
