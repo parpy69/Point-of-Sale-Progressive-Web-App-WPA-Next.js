@@ -46,9 +46,11 @@ export default function InstallButton() {
     });
 
     // On Android, show button after delay even if event hasn't fired
-    // The browser might show install option in menu
+    // This ensures the button is visible for Android users
     if (android) {
       const timer = setTimeout(() => {
+        // Show button even if beforeinstallprompt hasn't fired yet
+        // User can still use browser menu to install
         setShowButton(true);
       }, 2000);
 
@@ -76,12 +78,14 @@ export default function InstallButton() {
         }
       } catch (error) {
         console.error("Error showing install prompt:", error);
+        // If prompt fails, guide user to browser menu on Android
+        if (isAndroid) {
+          alert("Please use your browser menu (⋮) and select 'Install app' or 'Add to Home screen'");
+        }
       }
     } else if (isAndroid) {
-      // On Android, if native prompt isn't available, try to guide user
-      // But don't show alert - just let them use browser menu
-      // The button will still be visible so they know to install
-      console.log("Native prompt not available, user should use browser menu");
+      // On Android, if native prompt isn't available, guide user to browser menu
+      alert("To install:\n\n1. Tap the menu (⋮) in the top right\n2. Tap 'Install app' or 'Add to Home screen'\n3. Follow the prompts");
     }
   };
 

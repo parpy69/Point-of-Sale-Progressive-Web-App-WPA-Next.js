@@ -6,6 +6,35 @@ A modern, full-featured Point of Sale (POS) system built with Next.js, TypeScrip
 
 **[Try the live demo on Vercel →](https://point-of-sale-progressive-web-app-w.vercel.app/)**
 
+### 📱 Install as PWA
+
+Velocity can be installed as a Progressive Web App on desktop and mobile devices:
+
+![Velocity PWA installed on MacBook](./pwa-screenshot.png)
+
+**Installation Steps:**
+
+#### MacBook (Chrome/Edge)
+1. Visit the app in your browser
+2. Look for the install icon in the address bar (or use the "Install App" button)
+3. Click "Install" when prompted
+4. A dialog will appear asking "Open with" - select "Velocity" and click "Open"
+5. The app will be installed and accessible from your Applications folder
+
+![MacBook Installation Dialog](./macbook-install-dialog.png)
+
+#### Android
+1. Open the app in Chrome on your Android device
+2. Tap the "Install App" button (appears after a few seconds)
+3. Follow the browser's install prompt
+4. The app will be added to your home screen
+
+#### iOS
+1. Open the app in Safari
+2. Tap the Share button (square with arrow)
+3. Scroll and tap "Add to Home Screen"
+4. Tap "Add" to confirm
+
 ## 📱 Features
 
 ### Core Functionality
