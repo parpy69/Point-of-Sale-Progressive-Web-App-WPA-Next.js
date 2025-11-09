@@ -45,15 +45,14 @@ Follow the steps below for your device:
 3. **Look for the install icon** in the address bar (a computer with a down arrow) or wait for the "Install App" button to appear
 4. **Click the install icon** or the "Install App" button
 5. A dialog will appear titled **"Install app"**
-
-![MacBook Install Dialog](./macbook-install-dialog.png)
-
 6. **Click "Install"** to confirm
 7. An **"Open with"** dialog will appear
 8. **Select "Velocity"** from the list
 9. **Click "Open"**
 10. The app will launch and be added to your Applications folder
 11. You can now find Velocity in your **Launchpad** and **Applications** folder
+
+![MacBook Install Dialog](./macbook-install-dialog.png)
 
 > **Tip:** The app will open in its own window without browser UI, just like a native Mac app!
 
@@ -66,6 +65,9 @@ Follow the steps below for your device:
 1. **Open Chrome** browser on your Android device
 2. **Navigate** to [https://point-of-sale-progressive-web-app-w.vercel.app/](https://point-of-sale-progressive-web-app-w.vercel.app/)
 3. Wait a few seconds for the page to load
+
+![Android PWA Running](./android-pwa-running.png)
+
 4. **Look for the "Install App" button** in the bottom-right corner (blue gradient button)
 5. **Tap "Install App"**
 6. A dialog will appear asking to **"Install app"**
@@ -78,14 +80,11 @@ Follow the steps below for your device:
    - URL: point-of-sale-progressive-web-app-w.vercel.app
 8. **Tap "Install"** to confirm
 9. You'll see a notification: **"Velocity - App installed"**
-
-![Android App Installed Notification](./android-installed-notification.png)
-
 10. The app will be added to your home screen
 11. **Tap the Velocity icon** on your home screen to launch the app
 12. The app opens in **standalone mode** - full screen without browser UI!
 
-![Android PWA Running](./android-pwa-running.png)
+![Android App Installed Notification](./android-installed-notification.png)
 
 **Alternative method for Android:**
 - If the "Install App" button doesn't appear, tap the **menu (⋮)** in the top-right of Chrome
