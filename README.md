@@ -8,32 +8,104 @@ A modern, full-featured Point of Sale (POS) system built with Next.js, TypeScrip
 
 ### 📱 Install as PWA
 
-Velocity can be installed as a Progressive Web App on desktop and mobile devices:
+Velocity can be installed as a Progressive Web App on all your devices, providing a native app experience:
 
-![Velocity PWA installed on MacBook](./pwa-screenshot.png)
+![Velocity PWA](./pwa-screenshot.png)
 
-**Installation Steps:**
+---
 
-#### MacBook (Chrome/Edge)
-1. Visit the app in your browser
-2. Look for the install icon in the address bar (or use the "Install App" button)
-3. Click "Install" when prompted
-4. A dialog will appear asking "Open with" - select "Velocity" and click "Open"
-5. The app will be installed and accessible from your Applications folder
+## 📲 Installation Guide
 
-![MacBook Installation Dialog](./macbook-install-dialog.png)
+Follow the steps below for your device:
 
-#### Android
-1. Open the app in Chrome on your Android device
-2. Tap the "Install App" button (appears after a few seconds)
-3. Follow the browser's install prompt
-4. The app will be added to your home screen
+### 🍎 iOS (iPhone/iPad)
 
-#### iOS
-1. Open the app in Safari
-2. Tap the Share button (square with arrow)
-3. Scroll and tap "Add to Home Screen"
-4. Tap "Add" to confirm
+**Step-by-step installation on iOS devices:**
+
+1. **Open Safari** on your iPhone or iPad
+2. **Navigate** to [https://point-of-sale-progressive-web-app-w.vercel.app/](https://point-of-sale-progressive-web-app-w.vercel.app/)
+3. **Tap the Share button** at the bottom of the screen (square with an arrow pointing up)
+4. **Scroll down** in the share menu and find "Add to Home Screen"
+5. **Tap "Add to Home Screen"**
+6. **Customize the name** if desired (default is "Velocity")
+7. **Tap "Add"** in the top-right corner
+8. The Velocity app icon will appear on your home screen
+9. **Tap the icon** to launch the app in full-screen mode
+
+> **Note:** PWA installation on iOS only works in Safari browser, not Chrome or other browsers.
+
+---
+
+### 💻 MacBook (macOS)
+
+**Step-by-step installation on MacBook:**
+
+1. **Open Chrome or Edge** browser on your Mac
+2. **Visit** [https://point-of-sale-progressive-web-app-w.vercel.app/](https://point-of-sale-progressive-web-app-w.vercel.app/)
+3. **Look for the install icon** in the address bar (a computer with a down arrow) or wait for the "Install App" button to appear
+4. **Click the install icon** or the "Install App" button
+5. A dialog will appear titled **"Install app"**
+
+![MacBook Install Dialog](./macbook-install-dialog.png)
+
+6. **Click "Install"** to confirm
+7. An **"Open with"** dialog will appear
+8. **Select "Velocity"** from the list
+9. **Click "Open"**
+10. The app will launch and be added to your Applications folder
+11. You can now find Velocity in your **Launchpad** and **Applications** folder
+
+> **Tip:** The app will open in its own window without browser UI, just like a native Mac app!
+
+---
+
+### 🤖 Android
+
+**Step-by-step installation on Android devices:**
+
+1. **Open Chrome** browser on your Android device
+2. **Navigate** to [https://point-of-sale-progressive-web-app-w.vercel.app/](https://point-of-sale-progressive-web-app-w.vercel.app/)
+3. Wait a few seconds for the page to load
+4. **Look for the "Install App" button** in the bottom-right corner (blue gradient button)
+5. **Tap "Install App"**
+6. A dialog will appear asking to **"Install app"**
+
+![Android Install Dialog](./android-install-dialog.png)
+
+7. The dialog shows:
+   - App name: **Velocity**
+   - App icon: Blue circle with lightning bolt "V"
+   - URL: point-of-sale-progressive-web-app-w.vercel.app
+8. **Tap "Install"** to confirm
+9. You'll see a notification: **"Velocity - App installed"**
+
+![Android App Installed Notification](./android-installed-notification.png)
+
+10. The app will be added to your home screen
+11. **Tap the Velocity icon** on your home screen to launch the app
+12. The app opens in **standalone mode** - full screen without browser UI!
+
+![Android PWA Running](./android-pwa-running.png)
+
+**Alternative method for Android:**
+- If the "Install App" button doesn't appear, tap the **menu (⋮)** in the top-right of Chrome
+- Select **"Install app"** or **"Add to Home screen"**
+- Follow the prompts
+
+> **Note:** Works in Chrome, Edge, Samsung Internet, and other Chromium-based browsers on Android.
+
+---
+
+### ✅ Verifying Installation
+
+After installation, the app will:
+- ✓ Appear as a standalone app (no browser UI)
+- ✓ Have its own icon on your device
+- ✓ Open in full-screen mode
+- ✓ Work offline (with service worker caching)
+- ✓ Feel like a native app
+
+---
 
 ## 📱 Features
 
