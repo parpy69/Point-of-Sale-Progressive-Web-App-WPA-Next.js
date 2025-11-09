@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4f46e5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#bgGradient)"/>
+  
+  <!-- Lightning bolt -->
+  <path
+    d="M256 80 L224 208 L256 240 L288 208 L256 80 Z M224 208 L192 304 L256 272 L224 208 Z M192 304 L160 400 L256 368 L192 304 Z M288 208 L320 304 L256 272 L288 208 Z M320 304 L352 400 L256 368 L320 304 Z"
+    fill="white"
+    opacity="0.5"
+  />
+  
+  <!-- V letter -->
+  <text
+    x="256"
+    y="320"
+    font-family="Arial, sans-serif"
+    font-size="280"
+    font-weight="900"
+    fill="white"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    style="text-shadow: 0 4px 16px rgba(0,0,0,0.3), 0 0 24px rgba(255,255,255,0.5);"
+  >V</text>
+</svg>
+
