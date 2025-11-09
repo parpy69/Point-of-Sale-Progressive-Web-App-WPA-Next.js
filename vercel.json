@@ -1,5 +1,8 @@
 {
-  "buildCommand": "prisma generate && next build",
-  "installCommand": "npm install"
+  "buildCommand": "DATABASE_URL=\"file:./prisma/dev.db\" prisma generate && next build",
+  "installCommand": "npm install",
+  "env": {
+    "DATABASE_URL": "file:./prisma/dev.db"
+  }
 }
 

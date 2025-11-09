@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "DATABASE_URL=\"file:./prisma/dev.db\" prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate"
+    "postinstall": "DATABASE_URL=\"file:./prisma/dev.db\" prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",
