@@ -45,22 +45,8 @@ export default function InstallButton() {
       setDeferredPrompt(null);
     });
 
-    // For mobile devices, show button after delay even if event hasn't fired
-    // (browser might show install option in menu)
-    if (mobile) {
-      const timer = setTimeout(() => {
-        // Check if we can determine installability
-        if (!deferredPrompt) {
-          // Still show button with manual instructions
-          setShowButton(true);
-        }
-      }, 3000);
-
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-      };
-    }
+    // Only show button when beforeinstallprompt event fires
+    // Don't show button if event hasn't fired (means app isn't installable yet)
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -70,8 +56,9 @@ export default function InstallButton() {
   const handleInstallClick = async () => {
     if (deferredPrompt) {
       // Show the browser's native install prompt
+      // Note: This will show a confirmation dialog - browser security requirement
       try {
-        deferredPrompt.prompt();
+        await deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
         console.log("User choice:", outcome);
         if (outcome === "accepted") {
@@ -80,38 +67,13 @@ export default function InstallButton() {
         }
       } catch (error) {
         console.error("Error showing install prompt:", error);
-        // Fall through to show manual instructions
-        showManualInstructions();
       }
-    } else {
-      // Show manual installation instructions
-      showManualInstructions();
     }
+    // If deferredPrompt is null, don't show anything - button shouldn't be visible
   };
 
-  const showManualInstructions = () => {
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    
-    let instructions = "";
-    if (isAndroid) {
-      instructions = "To install:\n\n1. Tap the menu (⋮) in the top right\n2. Tap 'Install app' or 'Add to Home screen'\n3. Follow the prompts";
-    } else if (isIOS) {
-      instructions = "To install:\n\n1. Tap the Share button (square with arrow)\n2. Scroll and tap 'Add to Home Screen'\n3. Tap 'Add'";
-    } else {
-      instructions = "Look for the install icon in your browser's address bar, or check the browser menu for 'Install' option.";
-    }
-    
-    alert(instructions);
-  };
-
-  // Don't show if already installed
-  if (isInstalled) {
-    return null;
-  }
-
-  // Show button on mobile devices
-  if (!isMobile && !showButton) {
+  // Don't show if already installed or if native prompt isn't available
+  if (isInstalled || !showButton || !deferredPrompt) {
     return null;
   }
 
