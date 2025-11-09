@@ -5,6 +5,7 @@ import SWRegister from "./sw-register";
 import ChromeFix from "./chrome-fix";
 import NoSSR from "./no-ssr";
 import HideDevIndicator from "./hide-dev-indicator";
+import InstallButton from "./components/InstallButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,6 +58,7 @@ export default function RootLayout({
           {children}
         </NoSSR>
         <SWRegister />
+        <InstallButton />
       </body>
     </html>
   );
