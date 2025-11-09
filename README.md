@@ -71,9 +71,6 @@ Follow the steps below for your device:
 
 5. **Tap "Install App"**
 6. A dialog will appear asking to **"Install app"**
-
-![Android Install Dialog](./android-install-dialog.png)
-
 7. The dialog shows:
    - App name: **Velocity**
    - App icon: Blue circle with lightning bolt "V"
@@ -86,6 +83,8 @@ Follow the steps below for your device:
 10. The app will be added to your home screen
 11. **Tap the Velocity icon** on your home screen to launch the app
 12. The app opens in **standalone mode** - full screen without browser UI!
+
+![Android Install Dialog](./android-install-dialog.png)
 
 **Alternative method for Android:**
 - If the "Install App" button doesn't appear, tap the **menu (⋮)** in the top-right of Chrome
