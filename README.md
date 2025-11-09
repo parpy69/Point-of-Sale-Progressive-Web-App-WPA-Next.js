@@ -4,7 +4,7 @@ A modern, full-featured Point of Sale (POS) system built with Next.js, TypeScrip
 
 ## 🚀 Live Demo
 
-**[Try the live demo on Vercel →](https://your-vercel-url.vercel.app)**
+**[Try the live demo on Vercel →](https://point-of-sale-progressive-web-app-w.vercel.app/)**
 
 ## 📱 Features
 
