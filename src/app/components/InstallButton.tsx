@@ -11,7 +11,7 @@ export default function InstallButton() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showButton, setShowButton] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isAndroid, setIsAndroid] = useState(false);
 
   useEffect(() => {
     // Check if already installed
@@ -23,9 +23,9 @@ export default function InstallButton() {
       return;
     }
 
-    // Check if mobile device
-    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    setIsMobile(mobile);
+    // Check if Android device
+    const android = /Android/i.test(navigator.userAgent);
+    setIsAndroid(android);
 
     // Listen for beforeinstallprompt event (Android/Chrome)
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -45,18 +45,27 @@ export default function InstallButton() {
       setDeferredPrompt(null);
     });
 
-    // Only show button when beforeinstallprompt event fires
-    // Don't show button if event hasn't fired (means app isn't installable yet)
+    // On Android, show button after delay even if event hasn't fired
+    // The browser might show install option in menu
+    if (android) {
+      const timer = setTimeout(() => {
+        setShowButton(true);
+      }, 2000);
+
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      };
+    }
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     };
-  }, [deferredPrompt]);
+  }, []);
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
-      // Show the browser's native install prompt
-      // Note: This will show a confirmation dialog - browser security requirement
+      // Show the browser's native install prompt directly
       try {
         await deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
@@ -68,12 +77,21 @@ export default function InstallButton() {
       } catch (error) {
         console.error("Error showing install prompt:", error);
       }
+    } else if (isAndroid) {
+      // On Android, if native prompt isn't available, try to guide user
+      // But don't show alert - just let them use browser menu
+      // The button will still be visible so they know to install
+      console.log("Native prompt not available, user should use browser menu");
     }
-    // If deferredPrompt is null, don't show anything - button shouldn't be visible
   };
 
-  // Don't show if already installed or if native prompt isn't available
-  if (isInstalled || !showButton || !deferredPrompt) {
+  // Don't show if already installed
+  if (isInstalled) {
+    return null;
+  }
+
+  // Show button on Android devices
+  if (!isAndroid && !showButton) {
     return null;
   }
 
